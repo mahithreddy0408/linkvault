@@ -30,7 +30,7 @@ function App() {
   } catch (error) {
     setError(error.message);
   }
-}
+ }
 
   async function loadUrls() {
     setFetching(true);
@@ -182,7 +182,7 @@ function App() {
           </div>
           <span className="link-count">{urls.length} links shown</span>
         </div>
-<button onClick={clearHistory}>
+ <button onClick={clearHistory}>
                 Clear All History
                   </button>
         {fetching ? (
@@ -199,13 +199,13 @@ function App() {
               <article className="link-card" key={url.shortCode}>
                 <div className="link-details">
                   <a
-                    className="short-link"
-                    href={`http://localhost:5000/${url.shortCode}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {`http://localhost:5000/${url.shortCode}`}
-                  </a>
+  className="short-link"
+  href={getShortUrl(url.shortCode)}
+  target="_blank"
+  rel="noreferrer"
+>
+  {getShortUrl(url.shortCode)}
+</a>
 
                   <p className="original-link" title={url.originalUrl}>
                     {url.originalUrl}
@@ -226,7 +226,7 @@ function App() {
                   type="button"
                   onClick={() =>
                     copyLink(
-                      `http://localhost:5000/${url.shortCode}`,
+                      getShortUrl(url.shortCode),
                       url.shortCode
                     )
                   }
@@ -245,6 +245,13 @@ function App() {
       </footer>
     </main>
   );
+}
+function getShortUrl(shortCode) {
+  if (window.location.hostname === "localhost") {
+    return `http://localhost:5000/${shortCode}`;
+  }
+
+  return `${window.location.origin}/${shortCode}`;
 }
 
 export default App;

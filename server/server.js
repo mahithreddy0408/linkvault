@@ -80,13 +80,12 @@ app.post("/api/urls", async (req, res) => {
       shortCode
     });
 
-    res.status(201).json({
-      originalUrl: savedUrl.originalUrl,
-      shortCode: savedUrl.shortCode,
-      shortUrl: `http://localhost:5000/${savedUrl.shortCode}`,
-      clicks: savedUrl.clicks,
-      createdAt: savedUrl.createdAt
-    });
+    const baseUrl = process.env.BASE_URL || `http://localhost:${process.env.PORT || 5000}`;
+
+res.status(201).json({
+  ...savedUrl.toObject(),
+  shortUrl: `${baseUrl}/${savedUrl.shortCode}`,
+});
   } catch (error) {
     console.error("Create URL error:", error.message);
     res.status(500).json({
