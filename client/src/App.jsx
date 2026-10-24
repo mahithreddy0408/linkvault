@@ -136,7 +136,7 @@ function App() {
       <nav className="navbar">
         <a className="brand" href="/">
           <span className="brand-icon">↗</span>
-          LinkLite
+          LinkVault
         </a>
         <span className="nav-label">Simple. Fast. Shareable.</span>
       </nav>
@@ -241,7 +241,7 @@ function App() {
 
       <footer>
         <span>Made with care using the MERN stack.</span>
-        <span>LinkLite © {new Date().getFullYear()}</span>
+        <span>LinkVault © {new Date().getFullYear()}</span>
       </footer>
     </main>
   );

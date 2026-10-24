@@ -1,4 +1,4 @@
-# LinkLite — MERN URL Shortener
+# LinkVault — MERN URL Shortener
 
 A full-stack URL shortener built with MongoDB, Express.js, React, and Node.js.
 
@@ -23,7 +23,7 @@ A full-stack URL shortener built with MongoDB, Express.js, React, and Node.js.
 ## Project Structure
 
 ```text
-linklite/
+linkvault/
 ├── client/          # React frontend
 ├── server/
 │   └── server.js    # Express API and redirect routes
